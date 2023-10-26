@@ -25,5 +25,16 @@ class ProductsController < ApplicationController
     @products = Product.all
     render template: "products/index"
   end
-  
+
+  def create
+    @product = Product.create(
+      id: 100,
+      name: "daisy",
+      price: 90,
+      image_url: "google.com/daisy_flower_pics",
+      description: "possibly one of the loveliest flowers nature created"
+    )
+    render template: "products/show"
+  end
+
 end
