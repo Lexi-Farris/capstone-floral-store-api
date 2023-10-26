@@ -16,14 +16,14 @@ class ProductsController < ApplicationController
 
   #remember to add .json at the end of the url for this to work: http://localhost:3000//liliopsidas/1.json
   
-  def orchid_lovers
+  def show
     @product = Product.find_by(id: params["id"])
     render template: "products/show"
   end
 
-  def dahlia_lovers
-    @product = Product.find_by(name: params["name"])
-    render template: "products/show"
+  def index
+    @products = Product.all
+    render template: "products/index"
   end
   
 end

@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   # get "/liliopsidas", controller: "products", action: "orchid_lovers"
 
   #shorter way
-  get "/liliopsidas/:id" => "products#orchid_lovers"
+  get "/products/:id" => "products#show"
 
-  get "/others/:name" => "products#dahlia_lovers"
+  get "/products" => "products#index"
 
  #long way:  get "/others", controller: "products", action: "dahlia_lovers"
 end
