@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get "/products" => "products#index"
 
-  post "products/create" => "products#create"
+  post "/products" => "products#create"
 
  #long way:  get "/others", controller: "products", action: "dahlia_lovers"
 end

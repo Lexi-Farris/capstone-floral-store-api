@@ -28,11 +28,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(
-      id: 100,
-      name: "daisy",
-      price: 90,
-      image_url: "google.com/daisy_flower_pics",
-      description: "possibly one of the loveliest flowers nature created"
+      name: params["title"],
+      price: params["price"],
+      image_url: params["image_url"],
+      description: params["description"]
     )
     render template: "products/show"
   end
