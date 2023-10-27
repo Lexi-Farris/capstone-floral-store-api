@@ -1,3 +1,8 @@
+
 require 'http'
 
-response = 
+response = HTTP.get("http://localhost:3000/products")
+
+products = response.parse 
+
+pp products 

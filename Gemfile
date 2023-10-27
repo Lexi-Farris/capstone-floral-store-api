@@ -70,3 +70,6 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+#allows us to configure different domains to make back-end requests for our API. For more info, see: 
+gem "rack-cors"

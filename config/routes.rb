@@ -13,5 +13,9 @@ Rails.application.routes.draw do
 
   post "/products" => "products#create"
 
+  put "/products/:id" => "products#update"
+
+  delete "/products/:id" => "products#destroy"
+
  #long way:  get "/others", controller: "products", action: "dahlia_lovers"
 end
