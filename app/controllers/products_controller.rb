@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find_by(id: params["id"])
     if @product     #if product Is found, show the following template
-      render template: "recipies/show"
+      render template: "products/show"
     else
       render json: {}
     end
