@@ -4,10 +4,10 @@ one:
   name: MyString
   price: 1
   image_url: MyString
-  description: MyString
+  description: My long string of characters here
 
 two:
   name: MyString
   price: 1
   image_url: MyString
-  description: MyString
+  description: My long string of characters here

@@ -1,8 +1,21 @@
 
 require 'http'
+require 'tty-table'
 
-response = HTTP.get("http://localhost:3000/products")
+response = HTTP.get("http://localhost:3000/products.json")
 
-products = response.parse 
+products = response.parse
+rows =[]
 
-pp products 
+products.each do |product|
+  row = []
+  row << product["name"]
+  row << product["price"]
+  rows.push(row)
+end
+ 
+table = TTY::Table.new(["name","total"], rows)
+
+
+puts table.render(:ascii)
+

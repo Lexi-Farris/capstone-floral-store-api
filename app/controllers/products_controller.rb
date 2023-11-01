@@ -32,12 +32,17 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(
-      name: params["title"],
+      name: params["name"],
       price: params["price"],
       image_url: params["image_url"],
       description: params["description"]
     )
-    render template: "products/show"
+    if @product.valid?
+      render :show
+    else
+      render json: {errors: @product.errors.full_messages}, status: 406
+    end
+
   end
 
   def update
@@ -48,7 +53,13 @@ class ProductsController < ApplicationController
       image_url: params["image_url"] || @product.image_url,
       description: params["description"] || @product.description
     )
-    render template: "products/show"
+    
+    if @product.valid?
+      render :show
+    else
+      render json: {errors: @product.errors.full_messages}, status: 422
+    end
+
   end
 
   def destroy
