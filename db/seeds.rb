@@ -8,8 +8,9 @@
 
 puts "seeding for supplier started"
 
-Supplier.create(name: "Garden 17",email: "hello@garden17.com", phone_number: "512-123-456")
+#! will give us errors if something goes wrong in seeds file 
+Supplier.create!(name: "Garden 17",email: "hello@garden17.com", phone_number: "512-123-456")
 
-Supplier.create(name: "GreenAcres" , email: "hello@GreenAcres.com" , phone_number: "916-123-1233" )
+Supplier.create!(name: "GreenAcres" , email: "hello@GreenAcres.com" , phone_number: "916-123-1233" )
 
 puts "seeding completed without errors"

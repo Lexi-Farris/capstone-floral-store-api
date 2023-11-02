@@ -3,13 +3,11 @@
 one:
   name: MyString
   price: 5
-  image_url: MyString.jpg
   description: My long string of characters here
   supplier: one
 
 two:
   name: MyString
   price: 10
-  image_url: MyString.png
   description: My long string of characters here
   supplier: one
