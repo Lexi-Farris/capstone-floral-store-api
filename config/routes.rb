@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   get "suppliers/:id" => "suppliers#show"
 
  #long way:  get "/others", controller: "products", action: "dahlia_lovers"
+
+ #USERS
+ post "/users" => "users#create"
+ 
 end
