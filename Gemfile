@@ -73,3 +73,6 @@ end
 
 #allows us to configure different domains to make back-end requests for our API. For more info, see: 
 gem "rack-cors"
+
+#JWT Token 
+gem 'jwt'
