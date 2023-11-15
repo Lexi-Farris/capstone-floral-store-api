@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
   end
 
   def index
+    pp current_user
     @products = Product.all
     render template: "products/index"
   end
@@ -68,3 +69,6 @@ class ProductsController < ApplicationController
     render json: {message: "Product removed from database."}
   end
 end
+
+
+

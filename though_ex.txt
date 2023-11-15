@@ -1,0 +1,14 @@
+1. assosciate the prodcut ordered to the user
+  TEST: does the order appear with the correct user ID
+
+2. create a model that lists all the users with the products they've purchased
+  TEST: do the products appear for the correct user
+
+3. create a route for the cart page, order page, order confirmation
+    do the pages exists and allow user to post, get and update information
+
+4. create front end for the store
+  - include form to collect user info like address, billing info, venmo
+
+5. Add if condition, if user purchases product mulitple number of products by :price
+
