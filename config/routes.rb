@@ -24,8 +24,8 @@ Rails.application.routes.draw do
  #long way:  get "/others", controller: "products", action: "dahlia_lovers"
 
  #USERS
-  post "/users" => "users#create"
-  post "/sessions" => "sessions#create"
+  post "/users" => "users#create" #creates user
+  post "/sessions" => "sessions#create" #logs user in
 
 #Orders
 
