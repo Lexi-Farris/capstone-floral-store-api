@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
           true,
           { algorithm: "HS256" }
         )
-        User.find_by(id: decoded_token[0]["user_id"])
+        User.find_by(id: decoded_token[0]["user_id"]) # THIS is the user object, it's used to get the user ID from the current user that just logged in
       rescue JWT::ExpiredSignature
         nil
       end
