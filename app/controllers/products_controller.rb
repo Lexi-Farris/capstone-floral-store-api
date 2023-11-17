@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
   # def orchid_lovers 
   #   flower = Product.first
   # render json: flower.as_json

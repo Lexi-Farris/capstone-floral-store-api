@@ -1,8 +1,8 @@
 json.id order.id
-json.user order.user
+json.use_id order.user_id
 json.subtotal order.subtotal
 json.tax order.tax
 json.total order.total
-json.product order.product
+json.product_id order.product_id
 json.order order.quantity
 

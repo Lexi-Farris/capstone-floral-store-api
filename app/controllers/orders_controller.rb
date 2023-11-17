@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
-  
+  before_action :authenticate_user  
+
   def index
     @orders = Order.all 
+    @orders = current_user.orders
     render :index
   end
 
@@ -20,11 +22,15 @@ class OrdersController < ApplicationController
       tax: calculated_tax,
       total: calculated_total
     )
-    render json "Order confirmed."
+    if @order.valid?
+      render :show
+    else
+      render json: {errors: @order.errors.full_messages}, status: 422
+    end
   end
 
   def show
-    @order = Order.find_by(id: params[:id])
+    @order = current.orders.find_by(id: params[:id])
     render :show
   end
 
