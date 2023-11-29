@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def index
+    pp params[:category]
     pp current_user
     @products = Product.all
     render template: "products/index"

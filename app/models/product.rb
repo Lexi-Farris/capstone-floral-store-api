@@ -9,7 +9,9 @@ belongs_to :supplier
 has_many :images
 has_many :orders
 has_many :category_products 
+#allows access to cateogires in my jbuilder; can now say Products.first.category 
 has_many :categories, through: :category_products
+has_many :carted_products 
 
 
   #THIS IS WHAT'S UNDER THE HOOD OF BELONGS TO: SUPPLIER
@@ -38,6 +40,13 @@ has_many :categories, through: :category_products
     price + tax  
   end
    
+  def item_search
+    products.each do |p|
+      Product.find_by
+
+    end 
+  end
+
 
 
 

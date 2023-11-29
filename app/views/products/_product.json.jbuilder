@@ -5,3 +5,4 @@ json.total product.total
 json.description product.description
 json.supplier product.supplier
 json.images  product.images
+json.categories product.categories
