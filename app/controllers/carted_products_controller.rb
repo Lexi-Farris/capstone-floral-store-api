@@ -8,7 +8,11 @@ class CartedProductsController < ApplicationController
       status: "carted",
       order_id: nil,
     )
-    render :show
+    if @carted_product.valid?
+      render :show
+    else
+      render json: {errors: @carted_product.errors.full_messages}, status: 422
+    end
   end
 
   def index 
