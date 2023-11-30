@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = current.orders.find_by(id: params[:id])
+    @order = current_user.orders.find_by(id: params[:id])
     render :show
   end
 
