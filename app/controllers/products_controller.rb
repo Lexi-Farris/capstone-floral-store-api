@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
       Image.create(url: params[:url], product_id: @product.id)
       render :show
     else
-      render json: {errors: @product.errors.full_messages}, status: 406
+      render json: {errors: @product.errors.full_messages}, status: 422
     end
 
   end

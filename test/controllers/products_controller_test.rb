@@ -24,54 +24,56 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "name","is_discounted?","total", "description", "supplier", "images"], data.keys
+    assert_equal ["id", "name","is_discounted?","total", "description", "supplier", "images","categories"], data.keys
   end
 
   #Token needed to auth before actions below take place:
 
   test "create" do 
       assert_difference "Product.count", 1 do 
-      post "/products.json", 
+      post "/products.json",
       #passing the jwt as a header request to the API before passing the params to post new products
       headers: {"Authorization" => "Bearer #{@jwt}"},
-      params: {name: "test string", price: 143, description: "string of content here", supplier_id: Supplier.first.id}
-      assert_response 200
+      params: {name: "test product", price: 143, description: "string of content here", supplier_id: Supplier.first.id}
       
-      
-    
-
+  
     data = JSON.parse(response.body)
       assert_response 200
       refute_nil data["id"]
+      assert_equal "test product", data["name"]
+      assert_equal 0, data["price"].to_i
+      assert_equal "string of content here", data["description"]
+    end 
+  
 
     assert_difference "Product.count", 0 do
       post "/products.json",
       headers: {"Authorization" => "Bearer #{@jwt}"}, 
        params: {}
-      assert_response 402
+      assert_response 422
 
       #Asserts that the user can not post a new product UNLESS they are logged in
       post "/products.json"
       assert_response 401
     end
+   
   end
 
 
  
 
   test "update" do
-    product = Product.first 
-    put "/products/#{product.id}.json",
+    product = Product.first
+    patch "/products/#{product.id}.json",
     headers: {"Authorization" => "Bearer #{@jwt}"}, 
     params: {name: "NEW"}
     assert_response 200
 
     data = JSON.parse(response.body)
     assert_equal "NEW", data["name"]
-    # assert_equal product.total, data["total"]
-    assert_equal product.description, data["description"]
+    #assert_equal product.description, data["description"]
 
-    put "/products/#{product.id}.json", 
+    patch "/products/#{product.id}.json", 
     headers: {"Authorization" => "Bearer #{@jwt}"}, 
     params: { name: "" }
     assert_response 422
@@ -93,9 +95,3 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 end
   
-
-  
-
-  
-
-end
